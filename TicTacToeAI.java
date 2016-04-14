@@ -97,8 +97,11 @@ public class TicTacToeAI
       if (currentState[5] != null)
       {
          if (currentState[4] == null)
-            place = 4
+            place = 4;
       }
+      
+      if (place == -1 && currentState[2] == null)
+         place = 2;
       
       return place;
    }
