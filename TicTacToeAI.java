@@ -114,6 +114,28 @@ public class TicTacToeAI
       if (currentState[4] == "O")
       {
          //Conduct O middle operations
+         
+         
+         //Grabs 0
+         if ( (currentState[1] != null && currentState[2] != null) || (currentState[1] != null && currentState[5] != null) || (currentState[3] != null && currentState[6] != null) || (currentState[3] != null && currentState[5] != null) || (currentState[1] != null && currentState[7] != null) || (currentState[3] != null && currentState[7] != null))
+         {
+            if (currentState[0] == null)
+               return 0;
+         }
+         
+         //Grabs 1
+         
+         //Grabs 2
+         
+         //Grabs 3
+         
+         //Grabs 5
+         
+         //Grabs 6
+         
+         //Grabs 7
+         
+         //Grabs 8
       }
       else
       {
