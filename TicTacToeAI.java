@@ -111,6 +111,15 @@ public class TicTacToeAI
       int place = -1;
       
       //Calculate move
+      if (currentState[4] == "O")
+      {
+         //Conduct O middle operations
+      }
+      else
+      {
+         //Conduct O as top-left corner operations
+      }
+      
       
       return place;
    }
