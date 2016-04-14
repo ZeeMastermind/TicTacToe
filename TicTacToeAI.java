@@ -87,6 +87,7 @@ public class TicTacToeAI
          if currentState[1] == null;
          return 1;
       }
+      if (currentState[1] !=)
       
       return place;
    }
@@ -145,7 +146,7 @@ public class TicTacToeAI
       {
          if (currentState[i] != null)
          {
-            place = i + 1;
+            place = i;
             break;
          }
       }
