@@ -84,10 +84,14 @@ public class TicTacToeAI
       //Calculate move
       if (currentState[3] != null || currentState[4] != null || currentState[6] != null)
       {
-         if currentState[1] == null;
-         return 1;
+         if (currentState[1] == null)
+            return 1;
       }
-      if (currentState[1] !=)
+      if (currentState[1] != null || currentState[2] != null)
+      {
+         if (currentState[3] == null)
+            return 3;
+      }
       
       return place;
    }
