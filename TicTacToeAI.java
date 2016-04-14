@@ -123,10 +123,35 @@ public class TicTacToeAI
             if (currentState[7] == null)
                return 7;
          }
+         
+         if (currentState[2] != null)
+         {
+            if (currentState[6] == null)
+               return 6;
+         }
+         
+         if (currentState[3] != null)
+         {
+            if (currentState[5] != null)
+               return 5;
+         }
+         
+         if (currentState[5] != null)
+         {
+            if (currentState[3] != null)
+               return 3;
+         }
+         
          if (currentState[6] != null || currentState[8] != null)
          {
             if (currentState[2] == null)
                return 2;
+         }
+         
+         if (currentState[7] != null)
+         {
+            if (currentState[1] == null)
+               return 1;
          }
       }
       
