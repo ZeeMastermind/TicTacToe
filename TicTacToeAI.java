@@ -118,6 +118,16 @@ public class TicTacToeAI
       else
       {
          //Conduct O as top-left corner operations
+         if (currentState[1] != null)
+         {
+            if (currentState[7] == null)
+               return 7;
+         }
+         if (currentState[6] != null || currentState[8] != null)
+         {
+            if (currentState[2] == null)
+               return 2;
+         }
       }
       
       
