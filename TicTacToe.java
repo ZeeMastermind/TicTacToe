@@ -29,11 +29,11 @@ public class TicTacToe extends JFrame
    private boolean tieCheck = true;
    private boolean xCheck = false;
    private boolean oCheck = false;
-   
+   private TicTacToeAI ai;
    /**
       * Constructs the TicTacToe object
       * Constructs the frame
-      * Calls upon the setComponents method
+      * Calls upon the setComponents methodbutton
       */
    public TicTacToe()
    {
@@ -76,6 +76,7 @@ public class TicTacToe extends JFrame
             newGame.setEnabled(false);
             status.setText("It is Team X's turn");
          }
+         
       }
    }
    /**
