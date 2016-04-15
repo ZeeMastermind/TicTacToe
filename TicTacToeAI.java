@@ -124,6 +124,7 @@ public class TicTacToeAI
          }
          
          //Grabs 1
+         if ( (currentState[0] != null && currentState[2] != null) || (currentState[0] != null && currentState[8] != null) || (currentState[2] != null && currentState[6] != null) || (currentState[5] != null && currentState[6] != null) || (currentState[3] != null && currentState[8] != null)   )
          
          //Grabs 2
          
