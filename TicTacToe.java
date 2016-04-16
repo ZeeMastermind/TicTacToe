@@ -30,6 +30,7 @@ public class TicTacToe extends JFrame
    private boolean xCheck = false;
    private boolean oCheck = false;
    private TicTacToeAI ai;
+   private int aiMove;
    /**
       * Constructs the TicTacToe object
       * Constructs the frame
@@ -75,6 +76,9 @@ public class TicTacToe extends JFrame
             }
             newGame.setEnabled(false);
             status.setText("It is Team X's turn");
+            aiMove = ai.getNextMove();
+            tiles[aiMove].setText(marker);
+            ticTacToeArray[aiMove] = marker;
          }
          
       }
@@ -207,6 +211,7 @@ public class TicTacToe extends JFrame
       ticTacArray = new String[9];
       winLose = new JLabel();
       status = new JLabel();
+      ai = new TicTacToeAI();
       startListener start = new startListener();
       buttonListener button = new buttonListener();
       
