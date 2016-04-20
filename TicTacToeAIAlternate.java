@@ -1,10 +1,10 @@
 public class TicTacToeAIAlternate
 {   
 
-   bool firstSide3 = false; //Did enemy use a side prior to 3?
-   bool firstDiag3 = false; //Did enemy use a diagonal prior to 3?
-   bool firstLate5 = false; //Did enemy choose a no-win scenario prior to 5?
-   bool firstSide5 = false; //Did enemy choose a threatening side prior to 5?
+   boolean firstSide3 = false; //Did enemy use a side prior to 3?
+   boolean firstDiag3 = false; //Did enemy use a diagonal prior to 3?
+   boolean firstLate5 = false; //Did enemy choose a no-win scenario prior to 5?
+   boolean firstSide5 = false; //Did enemy choose a threatening side prior to 5?
    int select3 = -1; //Move used on turn 3
    int select5 = -1; //Move used on turn 5
    
@@ -17,39 +17,39 @@ public class TicTacToeAIAlternate
       int move = -1;
       if (turn == 0)
       {
-         move = getFirstTurn();
+         move = getFirstTurn(currentState);
       }
       if (turn == 1)
       {
-         move = getSecondTurn(currentState[]);
+         move = getSecondTurn(currentState);
       }
       if (turn == 2)
       {
-         move = getThirdTurn(currentState[]);
+         move = getThirdTurn(currentState);
       }
       if (turn == 3)
       {
-         move = getFouthTurn(currentState[]);
+         move = getFourthTurn(currentState);
       }
       if (turn == 4)
       {
-         move = getFifthTurn(currentState[]);
+         move = getFifthTurn(currentState);
       }
       if (turn == 5)
       {
-         move = getSixthTurn(currentState[]);
+         move = getSixthTurn(currentState);
       }
       if (turn == 6)
       {
-         move = getSeventhTurn(currentState[]);
+         move = getSeventhTurn(currentState);
       }
       if (turn == 7)
       {
-         move = getEigthTurn(currentState[]);
+         move = getEigthTurn(currentState);
       }
       if (turn == 8)
       {
-         move = getLastTurn(currentState[]);
+         move = getLastTurn(currentState);
       }
       return move;
    }
@@ -758,7 +758,7 @@ public class TicTacToeAIAlternate
          }
       }
       
-      return select
+      return select;
    }
    
    
