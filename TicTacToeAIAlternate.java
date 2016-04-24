@@ -30,39 +30,39 @@ public class TicTacToeAIAlternate
       int move = -1;
       if (turn == 0)
       {
-         move = getFirstTurn(currentState);
+         move = this.getFirstTurn(currentState);
       }
       if (turn == 1)
       {
-         move = getSecondTurn(currentState);
+         move = this.getSecondTurn(currentState);
       }
       if (turn == 2)
       {
-         move = getThirdTurn(currentState);
+         move = this.getThirdTurn(currentState);
       }
       if (turn == 3)
       {
-         move = getFourthTurn(currentState);
+         move = this.getFourthTurn(currentState);
       }
       if (turn == 4)
       {
-         move = getFifthTurn(currentState);
+         move = this.getFifthTurn(currentState);
       }
       if (turn == 5)
       {
-         move = getSixthTurn(currentState);
+         move = this.getSixthTurn(currentState);
       }
       if (turn == 6)
       {
-         move = getSeventhTurn(currentState);
+         move = this.getSeventhTurn(currentState);
       }
       if (turn == 7)
       {
-         move = getEigthTurn(currentState);
+         move = this.getEigthTurn(currentState);
       }
-      if (turn == 8)
+      if (turn >= 8)
       {
-         move = getLastTurn(currentState);
+         move = this.getLastTurn(currentState);
       }
       return move;
    }
@@ -73,7 +73,6 @@ public class TicTacToeAIAlternate
       
       select = 4;
       
-      select1 = select;
       return select;
    }
    
@@ -82,137 +81,149 @@ public class TicTacToeAIAlternate
       int select = -1;
       
       //If center is taken, O takes a corner. If not, O takes the center.
-      if (currentState[4] != null)
+      if (currentState[4] != "")
          select = 0;
       else
          select = 4;
       
       select2 = select;
+      
       return select;
+      
    }
    
    private int getThirdTurn(String currentState[])
    {
       int select = -1;
+      System.out.println("GETTING 3rd TURN");
       
-      if (currentState[1] != null || currentState[3] != null || currentState[5] != null || currentState[7] != null)
+      if (currentState[1] != "" || currentState[3] != "" || currentState[5] != "" || currentState[7] != "")
       {
          firstSide3 = true;
+         System.out.println("SIDE DETECTED");
          
-         if (currentState[1] != null)
+         if (currentState[1] != "")
             select = 0;
-         if (currentState[3] != null)
+         if (currentState[3] != "")
             select = 6;
-         if (currentState[5] != null)
+         if (currentState[5] != "")
             select = 2;   
-         if (currentState[7] != null)
+         if (currentState[7] != "")
             select = 8;
          
       }
-      if (currentState[0] != null || currentState[2] != null || currentState[6] != null || currentState[8] != null)
+      else if (currentState[0] != "" || currentState[2] != "" || currentState[6] != "" || currentState[8] != "")
       {
          firstDiag3 = true;
+         System.out.println("DIAGONAL DETECTED");
          
-         if (currentState[0] != null)
+         if (currentState[0] != "")
             select = 8;
-         if (currentState[2] != null)
+         if (currentState[2] != "")
             select = 6;
-         if (currentState[6] != null)
+         if (currentState[6] != "")
             select = 2;   
-         if (currentState[8] != null)
+         if (currentState[8] != "")
             select = 0;
       }
+      
       select3 = select;
+      System.out.print("Select3: ");
+      System.out.println(select3);
       return select;
    }
    
    private int getFourthTurn(String currentState[])
    {
       int select = -1;
+      System.out.println("FOURTH TURN!");
       
       if (select2 == 0)
       {
-         if (currentState[1] != null)
+         System.out.println("SEL2 = 0");
+         
+         if (currentState[1] != "")
             select = 7;
-         else if (currentState[2] != null)
+         else if (currentState[2] != "")
             select = 6;
-         else if (currentState[3] != null)
+         else if (currentState[3] != "")
             select = 5;
-         else if (currentState[5] != null)
+         else if (currentState[5] != "")
             select = 3;
-         else if (currentState[6] != null || currentState[8] != null)
+         else if (currentState[6] != "" || currentState[8] != "")
             select = 2;
-         else if (currentState[7] != null)
+         else if (currentState[7] != "")
             select = 1;
       }
       else if (select2 == 4)
       {
-         if (currentState[0] != null)
+         if (currentState[0] != "")
          {
-            if (currentState[1] != null)
+            if (currentState[1] != "")
                select = 2;
-            else if (currentState[2] != null || currentState[8] != null)
+            else if (currentState[2] != "" || currentState[8] != "")
                select = 1;
-            else if (currentState[3] != null)
+            else if (currentState[3] != "")
                select = 6;
-            else if (currentState[5] != null)
+            else if (currentState[5] != "")
                select = 7;
-            else if (currentState[6] != null)
+            else if (currentState[6] != "")
                select = 3;
-            else if (currentState[7] != null)
+            else if (currentState[7] != "")
                select = 5;
          }
-         else if (currentState[1] != null)
+         else if (currentState[1] != "")
          {
-            if (currentState[2] != null || currentState[5] != null || currentState[7] != null)
+            if (currentState[2] != "" || currentState[5] != "" || currentState[7] != "")
                select = 0;
-            else if (currentState[3] != null)
+            else if (currentState[3] != "")
                select = 2;
-            else if (currentState[6] != null)
+            else if (currentState[6] != "")
                select = 5;
-            else if (currentState[8] != null)
+            else if (currentState[8] != "")
                select = 3;
          }
-         else if (currentState[2] != null)
+         else if (currentState[2] != "")
          {
-            if (currentState[3] != null)
+            if (currentState[3] != "")
                select = 7;
-            else if (currentState[5] != null)
+            else if (currentState[5] != "")
                select = 8;
-            else if (currentState[6] != null)
+            else if (currentState[6] != "")
                select = 1;
-            else if (currentState[7] != null)
+            else if (currentState[7] != "")
                select = 3;
-            else if (currentState[8] != null)
+            else if (currentState[8] != "")
                select = 5;
          }
-         else if (currentState[3] != null)
+         else if (currentState[3] != "")
          {
-            if (currentState[5] != null || currentState[6] != null || currentState[7] != null)
+            if (currentState[5] != "" || currentState[6] != "" || currentState[7] != "")
                select = 0;
-            else if (currentState[8] != null)
+            else if (currentState[8] != "")
                select = 1;
          }
-         else if (currentState[5] != null)
+         else if (currentState[5] != "")
          {
-            if (currentState[6] != null)
+            if (currentState[6] != "")
                select = 1;
-            else if (currentState[7] != null || currentState[8] != null)
+            else if (currentState[7] != "" || currentState[8] != "")
                select = 2;
          }
-         else if (currentState[6] != null)
+         else if (currentState[6] != "")
          {
-            if (currentState[7] != null)
+            if (currentState[7] != "")
                select = 8;
-            else if (currentState[8] != null)
+            else if (currentState[8] != "")
                select = 7;
          }
-         else if (currentState[7] != null && currentState[8] != null)
+         else if (currentState[7] != "" && currentState[8] != "")
             select = 6;
       }
       
       select4 = select;
       return select;
+
    }
    
    private int getFifthTurn(String currentState[])
@@ -223,7 +234,7 @@ public class TicTacToeAIAlternate
       {
          if (select3 == 0)
          {
-            if (currentState[8] == null)
+            if (currentState[8] == "")
             {
                select = 8; //win
             }
@@ -235,7 +246,7 @@ public class TicTacToeAIAlternate
          
          if (select3 == 2)
          {
-            if (currentState[6] == null)
+            if (currentState[6] == "")
             {
                select = 6; //win
             }
@@ -247,7 +258,7 @@ public class TicTacToeAIAlternate
          
          if (select3 == 6)
          {
-            if (currentState[2] == null)
+            if (currentState[2] == "")
             {
                select = 2; //win
             }
@@ -259,7 +270,7 @@ public class TicTacToeAIAlternate
          
          if (select3 == 8)
          {
-            if (currentState[0] == null)
+            if (currentState[0] == "")
             {
                select = 0; //win
             }
@@ -274,36 +285,36 @@ public class TicTacToeAIAlternate
          if (select3 == 8)
          {
             //diagonal chosen
-            if (currentState[2] != null)
+            if (currentState[2] != "")
             {
                select = 1;
             }
-            if (currentState[6] != null)
+            if (currentState[6] != "")
             {
                select = 3;
             }
             
             //Threat side chosen
-            if (currentState[1] != null)
+            if (currentState[1] != "")
             {
                select = 2;
                firstSide5 = true;
             }
             
-            if (currentState[3] != null)
+            if (currentState[3] != "")
             {
                select = 6;
                firstSide5 = true;
             }
             
             //Non-threat side chosen            
-            if (currentState[5] != null)
+            if (currentState[5] != "")
             {
                select = 6;
                firstLate5 = true;
             }
             
-            if (currentState[7] != null)
+            if (currentState[7] != "")
             {
                select = 2;
                firstLate5 = true;
@@ -313,36 +324,36 @@ public class TicTacToeAIAlternate
          if (select3 == 6)
          {
             //diagonal chosen
-            if (currentState[0] != null)
+            if (currentState[0] != "")
             {
                select = 1;
             }
-            if (currentState[8] != null)
+            if (currentState[8] != "")
             {
                select = 5;
             }
             
             //Threat side chosen
-            if (currentState[1] != null)
+            if (currentState[1] != "")
             {
                select = 0;
                firstSide5 = true;
             }
             
-            if (currentState[5] != null)
+            if (currentState[5] != "")
             {
                select = 8;
                firstSide5 = true;
             }
             
             //Non-threat side chosen            
-            if (currentState[3] != null)
+            if (currentState[3] != "")
             {
                select = 8;
                firstLate5 = true;
             }
             
-            if (currentState[7] != null)
+            if (currentState[7] != "")
             {
                select = 0;
                firstLate5 = true;
@@ -353,36 +364,36 @@ public class TicTacToeAIAlternate
          if (select3 == 2)
          {
             //diagonal chosen
-            if (currentState[0] != null)
+            if (currentState[0] != "")
             {
                select = 3;
             }
-            if (currentState[8] != null)
+            if (currentState[8] != "")
             {
                select = 7;
             }
             
             //Threat side chosen
-            if (currentState[3] != null)
+            if (currentState[3] != "")
             {
                select = 0;
                firstSide5 = true;
             }
             
-            if (currentState[7] != null)
+            if (currentState[7] != "")
             {
                select = 8;
                firstSide5 = true;
             }
             
             //Non-threat side chosen            
-            if (currentState[1] != null)
+            if (currentState[1] != "")
             {
                select = 8;
                firstLate5 = true;
             }
             
-            if (currentState[5] != null)
+            if (currentState[5] != "")
             {
                select = 0;
                firstLate5 = true;
@@ -393,36 +404,36 @@ public class TicTacToeAIAlternate
          if (select3 == 0)
          {
             //diagonal chosen
-            if (currentState[2] != null)
+            if (currentState[2] != "")
             {
                select = 5;
             }
-            if (currentState[6] != null)
+            if (currentState[6] != "")
             {
                select = 7;
             }
             
             //Threat side chosen
-            if (currentState[5] != null)
+            if (currentState[5] != "")
             {
                select = 2;
                firstSide5 = true;
             }
             
-            if (currentState[3] != null)
+            if (currentState[7] != "")
             {
                select = 6;
                firstSide5 = true;
             }
             
             //Non-threat side chosen            
-            if (currentState[1] != null)
+            if (currentState[1] != "")
             {
                select = 6;
                firstLate5 = true;
             }
             
-            if (currentState[3] != null)
+            if (currentState[3] != "")
             {
                select = 2;
                firstLate5 = true;
@@ -443,50 +454,50 @@ public class TicTacToeAIAlternate
       {
          if (select4 == 1)
          {
-            if (currentState[2] == null)
+            if (currentState[2] == "")
                select = 2; //win
             else
                select = 6;
          }
          else if (select4 == 2)
          {
-            if (currentState[1] == null)
+            if (currentState[1] == "")
                select = 1; //win
             else
                select = 7;
          }
          else if (select4 == 3)
          {
-            if (currentState[6] == null)
+            if (currentState[6] == "")
                select = 6; //win
             else
                select = 2;
          }
          else if (select4 == 5)
          {
-            if (currentState[1] != null)
+            if (currentState[1] != "")
                select = 7;
-            else if (currentState[2] != null)
+            else if (currentState[2] != "")
                select = 6;
-            else if (currentState[6] != null)
+            else if (currentState[6] != "")
                select = 2;
             else
                select = 1;
          }
          else if (select4 == 6)
          {
-            if (currentState[3] == null)
+            if (currentState[3] == "")
                select = 3; //win
             else
                select = 5;
          }
          else if (select4 == 7)
          {
-            if (currentState[2] != null)
+            if (currentState[2] != "")
                select = 6;
-            else if (currentState[3] != null)
+            else if (currentState[3] != "")
                select = 5;
-            else if (currentState[6] != null)
+            else if (currentState[6] != "")
                select = 2;
             else
                select = 3;
@@ -496,136 +507,137 @@ public class TicTacToeAIAlternate
       {
          if (select4 == 0)
          {
-            if (currentState[8] == null)
+            if (currentState[8] == "")
                select = 8; //win
             else
             {
-               if (currentState[2] != null)
+               if (currentState[2] != "")
                   select = 5;
-               else if (currentState[5] != null)
+               else if (currentState[5] != "")
                   select = 2;
-               else if (currentState[6] != null)
+               else if (currentState[6] != "")
                   select = 7;
-               else if (currentState[7] != null)
+               else if (currentState[7] != "")
                   select = 6;
-               // else if (currentState[1] != null && currentState[3] != null) ???
+               // else if (currentState[1] != "" && currentState[3] != "") ???
             }
          }
          else if (select4 == 1)
          {
-            if (currentState[7] == null)
+            if (currentState[7] == "")
                select = 7; //win
             else
             {
-               if (currentState[0] != null && currentState[2] != null)
+               if (currentState[0] != "" && currentState[2] != "")
                   select = 3;
-               else if (currentState[6] != null)
+               else if (currentState[6] != "")
                   select = 8;
-               else if (currentState[8] != null)
+               else if (currentState[8] != "")
                   select = 6;
-               // else if (currentState[3] != null && currentState[5] != null) ???
+               // else if (currentState[3] != "" && currentState[5] != "") ???
             }
          }
          else if (select4 == 2)
          {
-            if (currentState[6] == null)
+            if (currentState[6] == "")
                select = 6; //win
             else
             {
-               if (currentState[0] != null)
+               if (currentState[0] != "")
                   select = 3;
-               else if (currentState[3] != null)
+               else if (currentState[3] != "")
                   select = 0;
-               else if (currentState[7] != null)
+               else if (currentState[7] != "")
                   select = 8;
-               else if (currentState[8] != null)
+               else if (currentState[8] != "")
                   select = 7;
-               // else if (currentState[1] != null && currentState[5] != null) ???
+               // else if (currentState[1] != "" && currentState[5] != "") ???
             }
          }
          else if (select4 == 3)
          {
-            if (currentState[5] == null)
+            if (currentState[5] == "")
                select = 5; //win
             else
             {
-               if (currentState[0] != null && currentState[6] != null)
+               if (currentState[0] != "" && currentState[6] != "")
                   select = 1;
-               else if (currentState[2] != null)
+               else if (currentState[2] != "")
                   select = 8;
-               else if (currentState[8] != null)
+               else if (currentState[8] != "")
                   select = 2;
-               // else if (currentState[1] != null && currentState[7] != null) ???
+               // else if (currentState[1] != "" && currentState[7] != "") ???
             }
          }
          else if (select4 == 5)
          {
-            if (currentState[3] == null)
+            if (currentState[3] == "")
                select = 3; //win
             else
             {
-               if (currentState[2] != null && currentState[8] != null)
+               if (currentState[2] != "" && currentState[8] != "")
                   select = 1;
-               else if (currentState[0] != null)
+               else if (currentState[0] != "")
                   select = 6;
-               else if (currentState[6] != null)
+               else if (currentState[6] != "")
                   select = 0;
-               // else if (currentState[1] != null && currentState[7] != null) ???
+               // else if (currentState[1] != "" && currentState[7] != "") ???
             }
          }
          else if (select4 == 6)
          {
-            if (currentState[2] == null)
+            if (currentState[2] == "")
                select = 2; //win
             else
             {
-               if (currentState[0] != null)
+               if (currentState[0] != "")
                   select = 1;
-               else if (currentState[1] != null)
+               else if (currentState[1] != "")
                   select = 0;
-               else if (currentState[5] != null)
+               else if (currentState[5] != "")
                   select = 8;
-               else if (currentState[8] != null)
+               else if (currentState[8] != "")
                   select = 5;
-               // else if (currentState[3] != null && currentState[7] != null) ???
+               // else if (currentState[3] != "" && currentState[7] != "") ???
             }
          }
          else if (select4 == 7)
          {
-            if (currentState[1] == null)
+            if (currentState[1] == "")
                select = 1; //win
             else
             {
-               if (currentState[6] != null && currentState[8] != null)
+               if (currentState[6] != "" && currentState[8] != "")
                   select = 3;
-               else if (currentState[0] != null)
+               else if (currentState[0] != "")
                   select = 2;
-               else if (currentState[2] != null)
+               else if (currentState[2] != "")
                   select = 0;
-               // else if (currentState[3] != null && currentState[5] != null) ???
+               // else if (currentState[3] != "" && currentState[5] != "") ???
             }
          }
          else if (select4 == 8)
          {
-            if (currentState[0] == null)
+            if (currentState[0] == "")
                select = 0; //win
             else
             {
-               if (currentState[1] != null)
+               if (currentState[1] != "")
                   select = 2;
-               else if (currentState[2] != null)
+               else if (currentState[2] != "")
                   select = 1;
-               else if (currentState[3] != null)
+               else if (currentState[3] != "")
                   select = 6;
-               else if (currentState[6] != null)
+               else if (currentState[6] != "")
                   select = 3;
-               // else if (currentState[5] != null && currentState[7] != null) ???
+               // else if (currentState[5] != "" && currentState[7] != "") ???
             }
          }
       }
       
       select6 = select;
       return select;
+
    }
    
    private int getSeventhTurn(String currentState[])
@@ -637,7 +649,7 @@ public class TicTacToeAIAlternate
       {
          if (select5 == 0)
          {
-            if (currentState[1] == null)
+            if (currentState[1] == "")
             {
                select = 1; //win
             }
@@ -649,7 +661,7 @@ public class TicTacToeAIAlternate
          
          if (select5 == 2)
          {
-            if (currentState[5] == null)
+            if (currentState[5] == "")
             {
                select = 5; //win
             }
@@ -661,7 +673,7 @@ public class TicTacToeAIAlternate
       
          if (select5 == 6)
          {
-            if (currentState[2] == null)
+            if (currentState[2] == "")
             {
                select = 2; //win
             }
@@ -673,7 +685,7 @@ public class TicTacToeAIAlternate
          
          if (select5 == 8)
          {
-            if (currentState[0] == null)
+            if (currentState[0] == "")
             {
                select = 0; //win
             }
@@ -695,7 +707,7 @@ public class TicTacToeAIAlternate
             {
                if (select5 == 1)
                {
-                  if (currentState[7] == null)
+                  if (currentState[7] == "")
                   {
                      select = 7; //win
                   }
@@ -706,7 +718,7 @@ public class TicTacToeAIAlternate
                }
                else
                {
-                  if (currentState[5] == null)
+                  if (currentState[5] == "")
                   {
                      select = 5; //win
                   }
@@ -721,7 +733,7 @@ public class TicTacToeAIAlternate
             {
                if (select5 == 1)
                {
-                  if (currentState[7] == null)
+                  if (currentState[7] == "")
                   {
                      select = 7; //win
                   }
@@ -732,7 +744,7 @@ public class TicTacToeAIAlternate
                }
                else
                {
-                  if (currentState[3] == null)
+                  if (currentState[3] == "")
                   {
                      select = 3; //win
                   }
@@ -747,7 +759,7 @@ public class TicTacToeAIAlternate
             {
                if (select5 == 3)
                {
-                  if (currentState[5] == null)
+                  if (currentState[5] == "")
                   {
                      select = 5; //win
                   }
@@ -758,7 +770,7 @@ public class TicTacToeAIAlternate
                }
                else
                {
-                  if (currentState[1] == null)
+                  if (currentState[1] == "")
                   {
                      select = 1; //win
                   }
@@ -774,7 +786,7 @@ public class TicTacToeAIAlternate
             {
                if (select5 == 5)
                {
-                  if (currentState[3] == null)
+                  if (currentState[3] == "")
                   {
                      select = 3; //win
                   }
@@ -785,7 +797,7 @@ public class TicTacToeAIAlternate
                }
                else
                {
-                  if (currentState[1] == null)
+                  if (currentState[1] == "")
                   {
                      select = 1; //win
                   }
@@ -806,7 +818,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 6)
                   {
-                     if (currentState[2] == null)
+                     if (currentState[2] == "")
                      {
                         select = 2; //win
                      }
@@ -817,7 +829,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[5] == null)
+                     if (currentState[5] == "")
                      {
                         select = 5; //win
                      }
@@ -832,7 +844,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 8)
                   {
-                     if (currentState[0] == null)
+                     if (currentState[0] == "")
                      {
                         select = 0; //win
                      }
@@ -843,7 +855,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[3] == null)
+                     if (currentState[3] == "")
                      {
                         select = 3; //win
                      }
@@ -859,7 +871,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 8)
                   {
-                     if (currentState[0] == null)
+                     if (currentState[0] == "")
                      {
                         select = 0; //win
                      }
@@ -870,7 +882,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[1] == null)
+                     if (currentState[1] == "")
                      {
                         select = 1; //win
                      }
@@ -886,7 +898,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 6)
                   {
-                     if (currentState[2] == null)
+                     if (currentState[2] == "")
                      {
                         select = 2; //win
                      }
@@ -897,7 +909,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[1] == null)
+                     if (currentState[1] == "")
                      {
                         select = 1; //win
                      }
@@ -915,7 +927,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 1)
                   {
-                     if (currentState[7] == null)
+                     if (currentState[7] == "")
                      {
                         select = 7; //win
                      }
@@ -927,7 +939,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[5] == null)
+                     if (currentState[5] == "")
                      {
                         select = 5; //win
                      }
@@ -942,7 +954,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 1)
                   {
-                     if (currentState[7] == null)
+                     if (currentState[7] == "")
                      {
                         select = 7; //win
                      }
@@ -953,7 +965,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[3] == null)
+                     if (currentState[3] == "")
                      {
                         select = 3; //win
                      }
@@ -968,7 +980,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 3)
                   {
-                     if (currentState[5] == null)
+                     if (currentState[5] == "")
                      {
                         select = 5; //win
                      }
@@ -979,7 +991,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[1] == null)
+                     if (currentState[1] == "")
                      {
                         select = 1; //win
                      }
@@ -994,7 +1006,7 @@ public class TicTacToeAIAlternate
                {
                   if (select5 == 5)
                   {
-                     if (currentState[3] == null)
+                     if (currentState[3] == "")
                      {
                         select = 3;
                      }
@@ -1005,7 +1017,7 @@ public class TicTacToeAIAlternate
                   }
                   else
                   {
-                     if (currentState[1] == null)
+                     if (currentState[1] == "")
                      {
                         select = 1;
                      }
@@ -1021,7 +1033,8 @@ public class TicTacToeAIAlternate
          }
       }
       
-      select7 = select;
+      //No select 7, because there will only be one choice for 9.
+      
       return select;
    }
    
@@ -1031,7 +1044,7 @@ public class TicTacToeAIAlternate
       
       //Check each square to find the two remaining empty spaces.
       //Then check whether playing in either square results in a win, block, or neither.
-      if (currentState[0] == null)
+      if (currentState[0] == "")
       {
          space8_1 = 0;
          
@@ -1065,7 +1078,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[1] == null)
+      if (currentState[1] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 1;
@@ -1117,7 +1130,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[2] == null)
+      if (currentState[2] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 2;
@@ -1189,7 +1202,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[3] == null)
+      if (currentState[3] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 3;
@@ -1240,7 +1253,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[4] == null)
+      if (currentState[4] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 4;
@@ -1332,7 +1345,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[5] == null)
+      if (currentState[5] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 5;
@@ -1384,7 +1397,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[6] == null)
+      if (currentState[6] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 6;
@@ -1456,7 +1469,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[7] == null)
+      if (currentState[7] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 7;
@@ -1508,7 +1521,7 @@ public class TicTacToeAIAlternate
             }
          }
       }
-      if (currentState[8] == null)
+      if (currentState[8] == "")
       {
          if (space8_1 == -1) //if this is the first empty space found
             space8_1 = 8;
@@ -1592,6 +1605,7 @@ public class TicTacToeAIAlternate
       
       select8 = select;
       return select;
+
    }
    
    private int getLastTurn(String currentState[])
@@ -1600,7 +1614,7 @@ public class TicTacToeAIAlternate
       
       for (int i=0; i < 9; i++)
       {
-         if (currentState[i] != null)
+         if (currentState[i] == "")
          {
             select = i;
             break;
